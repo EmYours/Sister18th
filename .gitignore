@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.vercel/
+.env*
+test-results/
+.npm-cache/
+playwright-report/
+.DS_Store
+Thumbs.db
+.local-archive/
