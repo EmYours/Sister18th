@@ -2,6 +2,24 @@ import { invitation } from './invitation-config.js';
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => [...document.querySelectorAll(selector)];
+// Animated starfield adapted from the supplied background demo.
+(function(){
+  const sky=document.getElementById('sky');
+  const n=window.innerWidth<600?420:700; // fewer stars on small screens
+  const f=document.createDocumentFragment();
+  for(let i=0;i<n;i++){
+    const el=document.createElement('div');el.className='star';
+    const r=Math.random();
+    const size=r<.04?3.4:r<.12?2.6:r<.3?1.9:Math.random()*1.1+.7;
+    el.style.cssText=`width:${size}px;height:${size}px;left:${(Math.random()*100).toFixed(2)}%;`+
+      `top:${(Math.random()*100).toFixed(2)}%;--dur:${(Math.random()*3+2.2).toFixed(2)}s;`+
+      `--delay:${(Math.random()*5).toFixed(2)}s;opacity:.5;`+
+      `box-shadow:0 0 ${(size*4).toFixed(1)}px ${(size*.7).toFixed(1)}px rgba(255,255,255,.85)`;
+    f.appendChild(el);
+  }
+  sky.appendChild(f);
+})();
+
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 const cover = $('#cover');
 const invitationBook = $('#main');

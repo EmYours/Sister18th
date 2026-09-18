@@ -1,6 +1,6 @@
 # Jean Angela at eighteen
 
-A navy-and-silver digital invitation card inspired by printed debut stationery. Guests open an ornate cover with script lettering, a crescent moon, silver paper edges, and stars. Inside are matching invitation sheets for the celebration, outfit illustrations, photographs, tribute lists, and an interactive RSVP. The cover can be opened by keyboard and closed again; direct links such as `/#rsvp` open the invitation automatically.
+A navy-and-silver digital invitation card inspired by printed debut stationery. Guests open an ornate cover with script lettering, a crescent moon, silver paper edges, and stars. The supplied animated starfield is integrated into `app.js` and `styles.css`, with 420 stars on phones and 700 on larger screens. It stays behind the invitation and respects reduced-motion settings; the standalone demo and previous static background have been removed. Inside are matching invitation sheets for the celebration, outfit illustrations, photographs, tribute lists, and an interactive RSVP. The cover can be opened by keyboard and closed again; direct links such as `/#rsvp` open the invitation automatically.
 
 ## Preview
 
