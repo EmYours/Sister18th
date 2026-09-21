@@ -16,7 +16,7 @@ export const invitation = {
   rsvpDeadline: '', // Example: 'October 9, 2026'
   contactName: '',
   contactLink: '', // Example: 'mailto:your@email.com' or 'tel:+639...'
-  formspreeEndpoint: '', // Example: 'https://formspree.io/f/YOUR_FORM_ID'
+  formspreeEndpoint: 'https://formspree.io/f/mnpnpbpn',
   // Use local images in assets/photos. Keep empty to display the placeholders.
   photos: {
     portrait: 'assets/Top.jpg', // Vertical portrait wearing the navy debut gown; 4:5 ratio.

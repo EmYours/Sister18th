@@ -20,11 +20,11 @@ async function openCard(page) {
   await expect(page.locator('#main')).toBeVisible();
 }
 
-async function enableTestEndpoint(page) {
+async function useFormspreeEndpoint(page, endpoint) {
   await page.route('**/invitation-config.js', async route => {
     const response = await route.fetch();
     const source = await response.text();
-    await route.fulfill({ response, body: source.replace("formspreeEndpoint: ''", "formspreeEndpoint: 'https://formspree.io/f/test123'") });
+    await route.fulfill({ response, body: source.replace(/formspreeEndpoint: '[^']*'/, `formspreeEndpoint: '${endpoint}'`) });
   });
 }
 
@@ -64,6 +64,7 @@ test('responsive layouts, loaded artwork, all tribute spaces, and map destinatio
 });
 
 test('RSVP validation, back navigation, safe review, and disconnected endpoint', async ({ page }) => {
+  await useFormspreeEndpoint(page, '');
   await page.goto('/');
   await openCard(page);
   await page.getByRole('button', { name: 'Continue' }).click();
@@ -86,7 +87,7 @@ test('RSVP validation, back navigation, safe review, and disconnected endpoint',
 });
 
 test('RSVP success sends the entered data once and waits for acceptance', async ({ page }) => {
-  await enableTestEndpoint(page);
+  await useFormspreeEndpoint(page, 'https://formspree.io/f/test123');
   let count = 0;
   let posted = '';
   await page.route('https://formspree.io/f/test123', async route => {
@@ -107,7 +108,7 @@ test('RSVP success sends the entered data once and waits for acceptance', async 
 });
 
 test('RSVP failure retains the response and allows a successful retry for a decline', async ({ page }) => {
-  await enableTestEndpoint(page);
+  await useFormspreeEndpoint(page, 'https://formspree.io/f/test123');
   let count = 0;
   await page.route('https://formspree.io/f/test123', route => {
     count++;
