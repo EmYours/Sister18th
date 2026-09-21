@@ -180,11 +180,26 @@ const connected = /^https:\/\/formspree\.io\/f\/[a-zA-Z0-9]+$/.test(invitation.f
 $('#rsvp-preview-notice').hidden = connected;
 let step = 0;
 let submitting = false;
+function selectedContactMethod() {
+  return $('input[name="contactMethod"]:checked')?.value || '';
+}
+function updateContactFields() {
+  const method = selectedContactMethod();
+  $$('[data-contact-field]').forEach((field) => {
+    const active = field.dataset.contactField === method;
+    const input = field.querySelector('input');
+    field.hidden = !active;
+    input.disabled = !active;
+    input.required = active;
+    if (!active) input.value = '';
+  });
+}
+$$('input[name="contactMethod"]').forEach((input) => input.addEventListener('change', updateContactFields));
 function validateStep(index) {
   if (index === 1) $('#guest-name').value = $('#guest-name').value.trim();
   const invalid = [...steps[index].querySelectorAll('input, textarea')].find((field) => !field.checkValidity());
   if (invalid) {
-    status.textContent = index === 0 ? 'Please choose your reply to continue.' : 'Please enter your name and a valid email address.';
+    status.textContent = index === 0 ? 'Please choose your reply to continue.' : 'Please enter your name and complete the contact option you selected.';
     invalid.reportValidity();
     invalid.focus();
     return false;
@@ -209,10 +224,13 @@ function showStep(index, focus = true) {
   if (step === 2) {
     const review = $('#rsvp-review');
     review.replaceChildren();
+    const contactMethod = selectedContactMethod();
+    const contactLabel = { email: 'Email', phone: 'Phone number', none: 'Contact details' }[contactMethod];
+    const contactValue = contactMethod === 'email' ? $('#guest-email').value : contactMethod === 'phone' ? $('#guest-phone').value : 'None provided';
     const values = [
       ['Your reply', $('input[name="attendance"]:checked').value],
       ['Guest name', $('#guest-name').value],
-      ['Email', $('#guest-email').value],
+      [contactLabel, contactValue],
       ['A note for Jean', $('#guest-message').value || 'With love, always.']
     ];
     values.forEach(([label, value]) => {
@@ -246,9 +264,12 @@ form.addEventListener('submit', async (event) => {
   submitButton.textContent = 'Sending your reply…';
   status.textContent = '';
   const payload = new FormData();
+  const contactMethod = selectedContactMethod();
   payload.set('attendance', $('input[name="attendance"]:checked').value);
   payload.set('name', $('#guest-name').value.trim());
-  payload.set('email', $('#guest-email').value.trim());
+  payload.set('contact_method', contactMethod);
+  if (contactMethod === 'email') payload.set('email', $('#guest-email').value.trim());
+  if (contactMethod === 'phone') payload.set('phone', $('#guest-phone').value.trim());
   payload.set('message', $('#guest-message').value.trim());
   payload.set('_gotcha', form.elements._gotcha.value);
   payload.set('_subject', 'Jean Angela at 18 — RSVP');

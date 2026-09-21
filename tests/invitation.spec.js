@@ -10,7 +10,8 @@ async function fillReply(page, attendance = 'Joyfully attending', name = 'Invite
   await page.getByText(attendance, { exact: true }).click();
   await page.getByRole('button', { name: 'Continue' }).click();
   await page.getByLabel('Your full name').fill(name);
-  await page.getByLabel('Email address').fill('guest@example.com');
+  await page.getByText('Email', { exact: true }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('guest@example.com');
   await page.getByLabel('A little note for Jean').fill('Wishing you a beautiful birthday!');
   await page.getByRole('button', { name: 'Continue' }).click();
 }
@@ -72,18 +73,21 @@ test('RSVP validation, back navigation, safe review, and disconnected endpoint',
   await page.getByText('Joyfully attending', { exact: true }).click();
   await page.getByRole('button', { name: 'Continue' }).click();
   await page.getByLabel('Your full name').fill('   ');
-  await page.getByLabel('Email address').fill('wrong');
   await page.getByRole('button', { name: 'Continue' }).click();
   await expect(page.locator('[data-step="1"]')).toBeVisible();
   await page.getByLabel('Your full name').fill('<img src=x onerror=alert(1)>');
-  await page.getByLabel('Email address').fill('guest@example.com');
+  await page.getByText('Email', { exact: true }).click();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('wrong');
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await expect(page.locator('[data-step="1"]')).toBeVisible();
+  await page.getByRole('textbox', { name: 'Email address' }).fill('guest@example.com');
   await page.getByRole('button', { name: 'Continue' }).click();
   await expect(page.locator('#rsvp-review')).toContainText('<img src=x onerror=alert(1)>');
   await expect(page.locator('#rsvp-review img')).toHaveCount(0);
   await expect(page.getByRole('button', { name: 'RSVP opens soon' })).toBeDisabled();
   await expect(page.locator('#connection-notice')).toBeVisible();
   await page.getByRole('button', { name: 'Back' }).click();
-  await expect(page.getByLabel('Email address')).toHaveValue('guest@example.com');
+  await expect(page.getByRole('textbox', { name: 'Email address' })).toHaveValue('guest@example.com');
 });
 
 test('RSVP success sends the entered data once and waits for acceptance', async ({ page }) => {
@@ -124,6 +128,43 @@ test('RSVP failure retains the response and allows a successful retry for a decl
   await expect(page.locator('#rsvp-success')).toBeHidden();
   await page.getByRole('button', { name: 'Send my RSVP' }).click();
   await expect(page.locator('#success-message')).toContainText('love and wishes');
+});
+
+test('RSVP contact options allow phone or no contact details', async ({ page }) => {
+  await useFormspreeEndpoint(page, 'https://formspree.io/f/test123');
+  const posts = [];
+  await page.route('https://formspree.io/f/test123', route => {
+    posts.push(route.request().postData());
+    return route.fulfill({ status: 200, contentType: 'application/json', body: '{}' });
+  });
+  await page.goto('/');
+  await openCard(page);
+  await page.getByText('Joyfully attending', { exact: true }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.getByLabel('Your full name').fill('Phone Guest');
+  await page.getByText('Phone number', { exact: true }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await expect(page.locator('[data-step="1"]')).toBeVisible();
+  await page.getByRole('textbox', { name: 'Phone number' }).fill('0917 123 4567');
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await expect(page.locator('#rsvp-review')).toContainText('0917 123 4567');
+  await page.getByRole('button', { name: 'Send my RSVP' }).click();
+  await expect(page.locator('#rsvp-success')).toBeVisible();
+  expect(posts[0]).toContain('phone');
+  expect(posts[0]).toContain('0917 123 4567');
+
+  await page.reload();
+  await openCard(page);
+  await page.getByText('Celebrating from afar', { exact: true }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await page.getByLabel('Your full name').fill('No Contact Guest');
+  await page.getByText('No contact details', { exact: true }).click();
+  await page.getByRole('button', { name: 'Continue' }).click();
+  await expect(page.locator('#rsvp-review')).toContainText('None provided');
+  await page.getByRole('button', { name: 'Send my RSVP' }).click();
+  await expect(page.locator('#success-message')).toContainText('love and wishes');
+  expect(posts[1]).toContain('contact_method');
+  expect(posts[1]).toContain('none');
 });
 
 test('mobile tribute controls and reduced-motion preference work', async ({ page }) => {

@@ -14,3 +14,4 @@ body{isolation:isolate;background:#070c24}
 #sky .star{position:absolute;border-radius:50%;background:#fff;animation:starfield-twinkle var(--dur) ease-in-out infinite var(--delay)}
 @keyframes starfield-twinkle{0%,100%{opacity:.3;transform:scale(.85)}50%{opacity:1;transform:scale(1.25)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}.reveal.is-waiting{opacity:1;transform:none}}
+input[type=tel]{width:100%;border:0;border-bottom:1px solid #879bbb;background:#f8fbff60;color:#24365b;padding:9px 11px;font-size:19px;border-radius:0}.contact-choice{margin:18px 0 4px}.contact-choice legend{font-size:19px;margin-bottom:5px}.contact-field{margin-top:10px}
