@@ -107,7 +107,7 @@ Object.entries(invitation.photos).forEach(([key, source]) => {
   const slot = $(`[data-photo="${key}"]`);
   const picture = new Image();
   picture.alt = { portrait: 'Jean Angela in her navy blue debut gown', detail: 'A beautiful detail from Jean Angela’s debut', candid: 'A candid portrait of Jean Angela' }[key];
-  picture.loading = key === 'portrait' ? 'eager' : 'lazy';
+  picture.loading = 'eager';
   // Retain the placeholder if an image path is incorrect.
   picture.addEventListener('load', () => {
     slot.querySelector('.portrait-placeholder, .photo-placeholder').replaceWith(picture);
