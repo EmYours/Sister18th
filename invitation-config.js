@@ -19,9 +19,9 @@ export const invitation = {
   formspreeEndpoint: 'https://formspree.io/f/mnpnpbpn',
   // Use local images in assets/photos. Keep empty to display the placeholders.
   photos: {
-    portrait: 'assets/Top.jpg', // Vertical portrait wearing the navy debut gown; 4:5 ratio.
-    detail: 'assets/C1.jpg',    // Close-up of the gown, a ribbon, flowers, or a handwritten note.
-    candid: 'assets/C2.jpg'     // A relaxed outdoor portrait in soft late-afternoon light.
+    portrait: 'assets/C1.jpg', // Vertical portrait wearing the navy debut gown; 4:5 ratio.
+    detail: 'assets/C2.jpg',    // Close-up of the gown, a ribbon, flowers, or a handwritten note.
+    candid: 'assets/Top.jpg'     // A relaxed outdoor portrait in soft late-afternoon light.
   },
   // Each list has 18 spaces. Replace empty strings with names, in program order.
   tributes: {
@@ -29,6 +29,6 @@ export const invitation = {
     gifts:   ['Macy/Aira', 'Faith', 'Ate Grace', 'Ate Angel', 'Ate CJ', 'Apple', 'Madison', 'Zyzy', 'Ate Pat', 'Ate Arjay', 'Tita Tin', 'Tita Christine', 'Mami Mildred', 'Mami Ema', 'Mami Sonia', 'Mami Cely', 'Mami Annie', 'Mami Marilyn'],
     candles: ['ChamCham', 'Ate Alex', 'Ate Bianca', 'Ate Angel', 'Ate Grace', 'Ate Angie', 'Ate Ashley', 'Ate Pat', 'Tita Janice', 'Tita Cindy', 'Tita Rox', 'Tita Ruth', 'Tita Raquel', 'Tita Zarra', 'Tita Tine', 'Tita Lyn', 'Mami Ana', 'Mama Diane'],
     bills:   ['Kuya Nate', 'Ate Zoey', 'Ate Pam', 'Tito Don', 'Tito Leonard Mark', 'Ninong Jerome', 'Kuya Gelo', 'Ninong Imon', 'Tito Allan', 'Tito Roy', 'Tito Mark', 'Tito Jaypaul', 'Tito Angelo', 'Daddy Carlos', 'Daddy Mario', 'Tita Helen', 'Tita Princess', 'Tita Nev/Tito Nog'],
-    wine:    ['Kuya Harry', 'Kuya Joss', 'Kuya Justine', 'Kuya Rap', 'Kuya Nate', 'Aidrex', 'Jahred', 'Kian', 'Ate Alex', 'Ate Bianca', 'DeiDei', 'Angelo Yape', 'Toto Litt', 'Tito Pudong', 'Tita Rom', 'Tita Precious Grace', 'Tita Janice', 'ChamCham']
+    wine:    ['Kuya Harry', 'Kuya Joss', 'Kuya Justine', 'Kuya Rap', 'Kuya Nate', 'Aidrek', 'Jahred', 'Kian', 'Ate Alex', 'Ate Bianca', 'DeiDei', 'Angelo Yape', 'Toto Litt', 'Tito Pudong', 'Tita Rom', 'Tita Precious Grace', 'Tita Janice', 'ChamCham']
   }
 };
