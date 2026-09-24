@@ -29,6 +29,6 @@ export const invitation = {
     gifts:   ['Macy/Aira', 'Faith', 'Ate Grace', 'Ate Angel', 'Ate CJ', 'Apple', 'Madison', 'Zyzy', 'Ate Pat', 'Ate Arjay', 'Tita Tin', 'Tita Christine', 'Mami Mildred', 'Mami Ema', 'Mami Sonia', 'Mami Cely', 'Mami Annie', 'Mami Marilyn'],
     candles: ['ChamCham', 'Ate Alex', 'Ate Bianca', 'Ate Angel', 'Ate Grace', 'Ate Angie', 'Ate Ashley', 'Ate Pat', 'Tita Janice', 'Tita Cindy', 'Tita Rox', 'Tita Ruth', 'Tita Raquel', 'Tita Zarra', 'Tita Tine', 'Tita Lyn', 'Mami Ana', 'Mama Diane'],
     bills:   ['Kuya Nate', 'Ate Zoey', 'Ate Pam', 'Tito Don', 'Tito Leonard Mark', 'Ninong Jerome', 'Kuya Gelo', 'Ninong Imon', 'Tito Allan', 'Tito Roy', 'Tito Mark', 'Tito Jaypaul', 'Tito Angelo', 'Daddy Carlos', 'Daddy Mario', 'Tita Helen', 'Tita Princess', 'Tita Nev/Tito Nog'],
-    wine:    ['Kuya Harry', 'Kuya Joss', 'Kuya Justine', 'Kuya Rap', 'Kuya Nate', 'Aidrek', 'Jahred', 'Kian', 'Ate Alex', 'Ate Bianca', 'DeiDei', 'Angelo Yape', 'Toto Litt', 'Tito Pudong', 'Tita Rom', 'Tita Precious Grace', 'Tita Janice', 'ChamCham']
+    wine:    ['Kuya Harry', 'Kuya Joss', 'Kuya Justine', 'Kuya Rap', 'Kuya Justin', 'Aidrek', 'Jahred', 'Kian', 'Ate Alex', 'Ate Bianca', 'DeiDei', 'Angelo Yape', 'Tito ReyMar', 'Tito Pudong', 'Tita Rom', 'Tita Precious Grace', 'Tita Janice', 'ChamCham']
   }
 };
