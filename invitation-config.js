@@ -19,9 +19,9 @@ export const invitation = {
   formspreeEndpoint: 'https://formspree.io/f/mnpnpbpn',
   // Use local images in assets/photos. Keep empty to display the placeholders.
   photos: {
-    portrait: 'assets/C1.jpg', // Vertical portrait wearing the navy debut gown; 4:5 ratio.
+    portrait: 'assets/oval.jpg', // Vertical portrait wearing the navy debut gown; 4:5 ratio.
     detail: 'assets/C2.jpg',    // Close-up of the gown, a ribbon, flowers, or a handwritten note.
-    candid: 'assets/Top.jpg'     // A relaxed outdoor portrait in soft late-afternoon light.
+    candid: 'assets/box1.jpg'     // A relaxed outdoor portrait in soft late-afternoon light.
   },
   // Each list has 18 spaces. Replace empty strings with names, in program order.
   tributes: {
