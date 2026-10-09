@@ -25,10 +25,10 @@ export const invitation = {
   },
   // Each list has 18 spaces. Replace empty strings with names, in program order.
   tributes: {
-    roses:   ['Kuya Gelo', 'Alford', 'Andrei', 'Ajin', 'Dwayne', 'David', 'Zion', 'Jahred','Aidrek', 'Kian', 'Tito Jake', 'Tito Marvin', 'Tito Mark Anthony', 'Tito Marlon', 'Tito Daryn', 'Lolo Doming', 'Tito Nog', 'Papa James'],
-    gifts:   ['Macy/Aira', 'Faith', 'Ate Grace', 'Ate Angel', 'Ate CJ', 'Apple', 'Madison', 'Zyzy', 'Angelo Orano', 'Ate Arjay', 'Tita Tin', 'Tita Christine', 'Mackane', 'Mami Ema', 'Mami Sonia', 'Mami Cely', 'Mami Annie', 'Mami Marilyn/Dadi bert'],
-    candles: ['ChamCham', 'Ate Alex', 'Ate Zoey', 'Ate Angel', 'Ate Grace', 'Ate Angie', 'Ate Ashley', 'Ate Pat', 'Tita Janice', 'Tita Cindy', 'Tita Rox', 'Tita Helen', 'Tita Raquel', 'Tita Zarra', 'Tita Tine', 'Tita Lyn', 'Mami Ana', 'Mama Diane'],
-    bills:   ['Kuya Nate', 'Ate Zoey', 'Ate Pam', 'Tito Don', 'Tito Leonard Mark', 'Ninong Jerome', 'Kuya Gelo', 'Ninong Imon', 'Tito Allan', 'Tito Oliver', 'Tito Mark', 'Tito Jaypaul', 'Tito Angelo', 'Daddy Carlos', 'Daddy Mario', 'Tita Helen', 'Tita Princess', 'Tita Nev/Tito Nog'],
-    wine:    ['Ate Pat','Kuya Harry', 'Kuya Joss', 'Kuya Justine', 'Kuya Rap²', 'Kuya Oppa', 'Aidrek', 'Jahred', 'Kian', 'Mackane', 'Elaine', 'DeiDei', 'Tito Helbert', 'Tito Pudong','Tito Christian', 'Tita Rom', 'Tita Precious Grace', 'ChamCham']
+    roses:   ['Kuya Gelo', 'Alford', 'Kian', 'Ajin', 'Andrei', 'David', 'Dwayne', 'Zion', 'Sebastian','Jahred', 'Tito Jake', 'Tito Marvin', 'Tito Mark Anthony', 'Tito Marlon', 'Tito Daryn', 'Daddy Doming', 'Tito Nog', 'Papa James'],
+    gifts:   ['Macy/Aira', 'Elaine', 'Ate Grace', 'Ate Angel', 'Ate CJ', 'Apple', 'Madison', 'Zyzy', 'Angelo Orano', 'Ate Arjay', 'Tita Tin', 'Tita Christine', 'Mackane', 'Mami Ema', 'Mami Sonia', 'Mami Cely', 'Mami Annie', 'Mami Marilyn/Dadi bert'],
+    candles: ['ChamCham', 'Ate Alex', 'Ate Pat', 'Ate Angel', 'Ate Grace', 'Ate Angie', 'Ate Ashley', 'Ate Zoey','Tita Helen', 'Tita Janice', 'Tita Cindy', 'Tita Rox',  'Tita Raquel', 'Tita Zarra', 'Tita Tin', 'Tita Annalyn', 'Mami Ana', 'Mama Diane'],
+    bills:   ['Kuya Nate', 'Ate Zoey', 'Ate Pam', 'Tito Don', 'Tito Leonard Mark', 'Tito Jerome', 'Tito Delfin', 'Tito Raymondo', 'Tito Allan', 'Tito Angelo', 'Tito Mark Olit', 'Tito Jaypaul', 'Tito Oliver', 'Daddy Carlos', 'Daddy Mario', 'Tita Helen', 'Tita Princess', 'Tita Nev/Tito Nog'],
+    wine:    ['Kuya Harry', 'Kuya Joss','Ate Pat', 'Kuya Justine','Ate Alex' ,'Kuya Justin Oppa', 'Kuya Rap²',  'Aidrek', 'Jahred', 'Kian', 'Mackane', 'Elaine', 'Tito Helbert', 'Tito Pudong','Tito Christian', 'Tita Rom', 'Tita Precious Grace', 'ChamCham']
   }
 };
